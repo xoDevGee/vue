@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <div id="app">
-    {{message}}
   </div>
   <script src="js/vue.js"></script>
   <script>
-    new Vue({
-      el : "#app",
-      data : {
-        message : "Hello, Vue.js"
+    let div = document.querySelector("#app");
+    let viewModel = {};
+
+    (() => {
+      function load() {
+        Object.defineProperty(viewModel, 'name', {
+          get: () => {
+            console.log('get');
+          },
+          set: (newValue) => {
+            //console.log('set :', newValue);
+            render(newValue);
+          }
+        });
       }
-    });
-</script>
+
+      function render(newValue) {
+        div.innerHTML = newValue;
+      }
+      load();
+    })();
+  </script>
 </body>
+
 </html>
