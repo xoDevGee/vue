@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.unpkg.com/vue"></script>
+  <style>
+    .css1 {
+      background-color: #444444;
+    }
+
+    .css2 {
+      color: #ffcc77;
+    }
+
+    .css3 {
+      background-color: #772277;
+    }
+
+    .css4 {
+      color: #ffffff;
+    }
+  </style>
+  <title>cssBind</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <h3 class="css1 css2">Ms. Boda</h3>
+    <h3 :class="[css1name, css2name]">I love you.</h3> -->
+    <button v-on:click='changeColor1'>Apply!!</button>
+    <button v-on:click='changeColor2'>Remove!!</button>
+    <h2 :class="{css1:isCss1, css2:isCss2}">I love Boda</h2>
+  </div>
+  <script>
+    let vm = new Vue({
+      data: {
+        css1name: 'css1',
+        css2name: 'css2',
+        isCss1: false,
+        isCss2: false,
+      },
+      methods: {
+        changeColor1: function(){
+          this.css1name = 'css3';
+          this.css2name = 'css4';
+          this.isCss1 = true;
+          this.isCss2 = true;
+        },
+        changeColor2: function(){
+          this.isCss1 = false;
+          this.isCss2 = false;
+        }
+      },
+    });
+    vm.$mount('#app');
+  </script>
+</body>
+
+</html>
