@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://www.unpkg.com/vue"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    
+  </div>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        first: 'Vue.js',
+        second: 'React',
+        result1: ""
+      },
+      watch: {
+        first: () => {
+          this.result1 = 'first' + this.first + 'second' + this.second;
+        },
+        second: () => {
+          this.result1 = 'first' + this.first + 'second' + this.second;
+        }
+      },
+      computed: {
+        result2: () => {
+          return 'first' + this.first + 'second' + this.second;
+        }
+      },
+    });
+  </script>
+
+</body>
+
+</html>

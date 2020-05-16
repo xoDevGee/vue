@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.unpkg.com/vue"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="number" v-model='first'><br>
+    <input type="number" v-model='second'><br>
+    <h4>{{first}}</h4>
+    <h4>{{second}}</h4>
+    <h4>{{third}}</h4>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        first: '',
+        second: '',
+        third: ''
+      },
+      watch: {
+        first: (newVal, oldVal) => {
+          console.log('first' + newVal + oldVal);
+          this.third = 'first' + newVal
+        },
+        second: (newVal, oldVal) => {
+          console.log('second' +newVal + oldVal);
+          this.third = 'second' + newVal
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>

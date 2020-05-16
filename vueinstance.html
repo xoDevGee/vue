@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.unpkg.com/vue"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">{{message}}</div>
+  <script>
+    let vm = new Vue({
+      data: {
+          message:'hello'
+      },
+      beforeCreate() {
+        console.log('call beforCreate');
+      },
+      created() {
+        console.log('call Create');
+      },
+      beforeMount() {
+        console.log('call beforeMount');
+      },
+      mounted() {
+        console.log('call mounted');
+      },
+      beforeUpdate() {
+        console.log('call beforeUpdate');
+      },
+      updated() {
+        console.log('call beforCreate');
+      },
+      beforeDestroy() {
+        console.log('call beforeDestroyed');
+      },
+      destroyed() {
+        console.log('call Destroyed');
+      },
+    });
+    vm.$mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.unpkg.com/vue"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{carname}}</p>
+    <p>{{carprice| myfilter}}</p>
+  </div> 
+  <script>
+    new Vue({
+      el:'#app',
+      data: {
+        carname:'sonata',
+        carprice:25000000
+      },
+      filters:{
+        myfilter: (newVal)=> {
+          return newVal.toString().replace(/(\d)(?=(\d{3})+$)/g,'$1,');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
