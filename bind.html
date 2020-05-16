@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://www.unpkg.com/vue"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button :title="myattr">Click Me!!</button><br>
+    <img :src="path"><br>
+    <a :href="myurl">{{naver()}}</a>
+  </div>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        myattr: '구매는 로그인 안하셔도 됩니다.',
+        path: 'https://source.unsplash.com/1920x720/daily?cat',
+        myurl: 'https://tgd.kr'
+      },
+      methods: {
+        naver: () => {
+          return this.myattr;
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>

@@ -5,35 +5,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://www.unpkg.com/vue"></script>
+  <script>
+    window.addEventListener('load', () => {
+        let vm = new Vue({
+          el: "#app",
+          data: {
+            greeting: 'Hello, Vue.js',
+            age: 24
+          }
+        });
+        let vm1 = new Vue({
+          el: "#app1",
+          data: {
+            isAdult: true,
+            now: new Date()
+          }
+        });
+
+        let vm2 = new Vue({
+          el: ".container",
+          data: {
+            fruits: ['mango', 'apple', 'melon'],
+            userinFo: {
+              'name': '한지민',
+              'age': 24
+            }
+          }
+        });
+      },
+      false);
+  </script>
 </head>
 
 <body>
   <div id="app">
+    <p>{{greeting}}</p>
+    <p>{{age}}</p>
   </div>
-  <script src="js/vue.js"></script>
-  <script>
-    let div = document.querySelector("#app");
-    let viewModel = {};
-
-    (() => {
-      function load() {
-        Object.defineProperty(viewModel, 'name', {
-          get: () => {
-            console.log('get');
-          },
-          set: (newValue) => {
-            //console.log('set :', newValue);
-            render(newValue);
-          }
-        });
-      }
-
-      function render(newValue) {
-        div.innerHTML = newValue;
-      }
-      load();
-    })();
-  </script>
+  <div id="app1">
+    <p>{{isAdult}}</p>
+    <p>{{now}}</p>
+  </div>
+  <div class="container">
+    <p>{{fruits}}</p>
+    <p>{{userinFo}}</p>
+  </div>
 </body>
 
 </html>
